@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint:
-    name: Lint Code
+    name: Lint Job
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -34,7 +34,7 @@ jobs:
         run: pipenv run lint
 
   test:
-    name: Run Tests
+    name: Test Job
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -58,7 +58,7 @@ jobs:
         run: pipenv run test
 
   build:
-    name: Build Docker Image
+    name: Build Job
     runs-on: ubuntu-latest
     defaults:
       run:
