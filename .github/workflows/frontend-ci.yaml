@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: stater/frontend
+        working-directory: starter/frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: node-modules-${{ hashFiles('stater/frontend/package-lock.json') }}
+          key: node-modules-${{ hashFiles('starter/frontend/package-lock.json') }}
           restore-keys: |
             node-modules-
 
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: stater/frontend
+        working-directory: starter/frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -57,7 +57,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: node-modules-${{ hashFiles('stater/frontend/package-lock.json') }}
+          key: node-modules-${{ hashFiles('starter/frontend/package-lock.json') }}
           restore-keys: |
             node-modules-
 
@@ -73,7 +73,7 @@ jobs:
     needs: [lint, test]
     defaults:
       run:
-        working-directory: stater/frontend
+        working-directory: starter/frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -87,7 +87,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: node-modules-${{ hashFiles('stater/frontend/package-lock.json') }}
+          key: node-modules-${{ hashFiles('starter/frontend/package-lock.json') }}
           restore-keys: |
             node-modules-
 
@@ -98,4 +98,4 @@ jobs:
         run: npm run test
 
       - name: Build application with Docker
-        run: docker build -t frontend-app stater/frontend
+        run: docker build -t frontend-app starter/frontend
