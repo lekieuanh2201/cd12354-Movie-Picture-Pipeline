@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /stater/frontend
+        working-directory: stater/frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /stater/frontend
+        working-directory: stater/frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -73,7 +73,7 @@ jobs:
     needs: [lint, test]
     defaults:
       run:
-        working-directory: /stater/frontend
+        working-directory: stater/frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -98,4 +98,4 @@ jobs:
         run: npm run test
 
       - name: Build application with Docker
-        run: docker build -t frontend-app /stater/frontend
+        run: docker build -t frontend-app stater/frontend
