@@ -105,5 +105,6 @@ jobs:
           aws eks update-kubeconfig --name $CLUSTER_NAME --region $AWS_REGION
 
       - name: Deploy to EKS
+        working-directory: starter/frontend/k8s
         run: |
-          kubectl apply -f starter/frontend/k8s
+          kubectl apply -f .
