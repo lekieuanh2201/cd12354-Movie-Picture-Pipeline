@@ -106,4 +106,4 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          pwd
+          kubectl apply -f starter/frontend/k8s
