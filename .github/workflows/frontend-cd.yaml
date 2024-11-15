@@ -114,5 +114,5 @@ jobs:
 
       - name: Deploy using Kustomize
         run: |
-          kustomize edit set image frontend=141233220008.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
-          kustomize build | kubectl apply -f -
+          kustomize edit set image frontend=141233220008.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest && \
+          kustomize build ./starter/frontend/k8s | kubectl apply -f -
