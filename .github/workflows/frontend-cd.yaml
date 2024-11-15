@@ -91,9 +91,9 @@ jobs:
   deploy:
     name: Deploy to EKS 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: starter/frontend/k8s
+    # defaults:
+    #   run:
+    #     working-directory: starter/frontend/k8s
     needs: build
     steps:
       - name: Configure AWS Credentials
