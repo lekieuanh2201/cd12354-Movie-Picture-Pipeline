@@ -91,11 +91,11 @@ jobs:
 
       - name: Tag Docker Image
         run: |
-          docker tag $ECR_REPOSITORY:latest $AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+          docker tag $ECR_REPOSITORY:latest 141233220008.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
 
       - name: Push Docker Image to ECR
         run: |
-          docker push $AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+          docker push 141233220008.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
 
   deploy:
     name: Deploy to EKS 
@@ -123,5 +123,5 @@ jobs:
 
       - name: Deploy using Kustomize
         run: |
-          kustomize edit set image frontend=$ECR_REPOSITORY:latest
+          kustomize edit set image frontend=141233220008.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
           kustomize build | kubectl apply -f -
